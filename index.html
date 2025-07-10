@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ejderha Şifresi</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(#0d1b2a, #1b263b);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      user-select: none;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    audio {
+      margin: 20px 0;
+      outline: none;
+    }
+    button {
+      background-color: #e0aaff;
+      color: #1b263b;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    button:hover {
+      background-color: #c77dff;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      min-height: 24px;
+    }
+    #link {
+      margin-top: 10px;
+      display: none;
+    }
+    #link a {
+      color: #ffd6ff;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejderha Günlüğü: 3. Mektuba Erişmek İçin Şarkıyı Bilmelisin</h1>
+
+  <div id="quiz-container" style="display:none;">
+    <audio controls>
+      <source src="forbidden-friendship.mp3" type="audio/mpeg" />
+      Tarayıcınız ses öğesini desteklemiyor.
+    </audio>
+
+    <p>Bu parça hangi How to Train Your Dragon müziğidir?</p>
+
+    <div>
+      <button onclick="checkAnswer('A')">A) Test Drive</button>
+      <button onclick="checkAnswer('B')">B) Forbidden Friendship</button>
+      <button onclick="checkAnswer('C')">C) Romantic Flight</button>
+      <button onclick="checkAnswer('D')">D) Stoick’s Ship</button>
+    </div>
+
+    <div id="result"></div>
+    <div id="link">
+      <a href="https://www.notion.so/Welcome-to-Berk-22cb1c20009380ef83b6e1b967e823d2?source=copy_link" target="_blank" rel="noopener noreferrer">
+        📜 Mektuba Git
+      </a>
+    </div>
+  </div>
+
+  <div id="wait-message" style="font-size:20px;">
+    Mektup ve quiz henüz açılmadı. Sabırla bekle ❤️
+  </div>
+
+  <script>
+    function checkAnswer(answer) {
+      const result = document.getElementById('result');
+      const link = document.getElementById('link');
+      if (answer === 'B') {
+        result.textContent = 'TEBRİK EDERİM DİŞSİZ';
+        link.style.display = 'block';
+      } else {
+        result.textContent = 'Yanlış cevap 🐉 Ejderhan biraz sinirlendi... tekrar dene!';
+        link.style.display = 'none';
+      }
+    }
+
+    window.onload = () => {
+      const now = new Date();
+      const unlockDate = new Date('2025-07-29T00:00:00'); // Güncellenmiş tarih
+
+      if (now >= unlockDate) {
+        document.getElementById('quiz-container').style.display = 'block';
+        document.getElementById('wait-message').style.display = 'none';
+      } else {
+        document.getElementById('quiz-container').style.display = 'none';
+        document.getElementById('wait-message').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
